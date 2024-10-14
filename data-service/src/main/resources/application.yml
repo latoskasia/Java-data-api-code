@@ -5,4 +5,8 @@ spring:
     url: jdbc:hsqldb:mem:authdb
     driver-class-name: org.hsqldb.jdbcDriver
     username: sa
-    password:
+    password: pass
+  jps:
+    hibernate:
+      ddl-auto:update
+    show-sql: true
