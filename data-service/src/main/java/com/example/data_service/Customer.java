@@ -1,11 +1,9 @@
 package com.example.data_service;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
+@Table(name="customer")
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,7 +39,7 @@ public class Customer {
         return password;
     }
 
-    public void setNPassword(String password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 

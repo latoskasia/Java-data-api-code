@@ -22,13 +22,13 @@ public class DataController {
         return customerRepository.save(customer);
     }
 
-    @PutMapping
+    @PutMapping("/{id}")
     public Customer updateCustomer(@PathVariable Long id, @RequestBody Customer customer){
         customer.setId(id);
         return customerRepository.save(customer);
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     public void deleteCustomer(@PathVariable Long id){
         customerRepository.deleteById(id);
     }
