@@ -2,7 +2,14 @@ server:
   port:8081
 spring:
   datasource:
-    url: jdbc:hsqldb:mem:authdb
-    driver-class-name: org.hsqldb.jdbcDriver
+    url: jdbc:hsqldb:mem:accountsdb
+    driver-class-name: org.hsqldb.jdbc.JDBCDriver
     username: sa
-    password:
+    password: sa
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  sql:
+    init:
+      mode: always
