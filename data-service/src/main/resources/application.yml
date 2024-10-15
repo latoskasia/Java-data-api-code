@@ -3,10 +3,13 @@ server:
 spring:
   datasource:
     url: jdbc:hsqldb:mem:customersdb
-    driver-class-name: org.hsqldb.jdbcDriver
+    driver-class-name: org.hsqldb.jdbc.JDBCDriver
     username: sa
-    password:
-  jps:
+    password: sa
+  jpa:
     hibernate:
       ddl-auto: update
     show-sql: true
+  sql:
+    init:
+      mode: always
