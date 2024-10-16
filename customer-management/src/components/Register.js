@@ -14,9 +14,9 @@ const Register = () => {
                 email,
                 password,
             });
-            alert('Registered succesfully');
+            alert('Registered successfully');
         } catch (err) {
-            console.error('Registartion failed', err);
+            console.error('Registration failed', err);
             alert('Registration failed');
         }
     };

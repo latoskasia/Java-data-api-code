@@ -7,17 +7,29 @@ import './App.css';
 const App = () => {
 
   const [token, setToken] = useState(null);
+  const [showRegister, setShowRegister] = useState(false);
+
+  const handleLogout = () => {
+    setToken(null);
+    localStorage.removeItem('token');
+  };
 
   return (
-    <div>
+    <div className="app-container">
       <h1>Customer Management App</h1>
       {!token ? (
-        <>
+        <div>
           <Login setToken={setToken}/>
-          <Register />
-        </>
+          <button onClick={()=> setShowRegister(!showRegister)}>
+            {showRegister ? 'Hide Registartion' : 'Show Registration'}
+          </button>
+          {showRegister && <Register />}
+        </div>
       ) : (
+      <div>
+        <button onClick={handleLogout}>Logout</button>
         <Customers />
+        </div>
       )}
     </div>
   );

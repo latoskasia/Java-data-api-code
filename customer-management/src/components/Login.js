@@ -15,7 +15,8 @@ const Login = ({setToken}) => {
             const {token} = response.data;
             setToken(token);
             setAuthToken(token);
-            alert('Logged in succesfully');
+            localStorage.setItem('token', token);
+            alert('Logged in successfully');
         } catch (err) {
             console.error('Login failed', err);
             alert('Login failed');
