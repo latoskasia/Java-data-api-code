@@ -1,11 +1,18 @@
 import axios from 'axios'
 
-const API_URL = 'http://localhost:8080';
+const ACCOUNT_API_URL = 'http://localhost:8081';
+const DATA_API_URL = 'http://localhost:8080';
+
+export const accountApi = axios.create({
+  baseURL: ACCOUNT_API_URL,
+  headers: {
+    'Content-Type': 'application/json',},});
+
 
 const api = axios.create({
-  baseURL: API_URL,
-  headers: {
-    'Content-Type': 'application/json',},})
+   baseURL: DATA_API_URL,
+   headers: {
+     'Content-Type': 'application/json',},})
 
 export const setAuthToken = (token) => {
   if (token) {

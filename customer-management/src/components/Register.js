@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import api from '../api';
+import {accountApi} from '../api';
 
 const Register = () => {
     const [email, setEmail] = useState("");
@@ -8,8 +8,9 @@ const Register = () => {
 
     const handleRegister = async (e) => {
         e.preventDefault();
+        console.log("Sending data: ", {name, email, password});
         try {
-            await api.post('http://localhost:8081/register', {
+            await accountApi.post('/register', {
                 name,
                 email,
                 password,

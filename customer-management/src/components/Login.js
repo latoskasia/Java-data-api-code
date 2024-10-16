@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
-import api, {setAuthToken} from '../api';
+import api, {accountApi, setAuthToken} from '../api';
+
 
 const Login = ({setToken}) => {
     const [email, setEmail] = useState("");
@@ -8,7 +9,7 @@ const Login = ({setToken}) => {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const response = await api.post('http://localhost:8081/token', {
+            const response = await accountApi.post('/token', {
                 email,
                 password,
             });

@@ -3,6 +3,7 @@ package com.example.account_service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class UserService {
@@ -16,6 +17,7 @@ public class UserService {
     private BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     public void saveUser(User user){
+        System.out.println("Saving user started" + user.getName() + "" +user.getEmail());
         user.setPassword((passwordEncoder.encode(user.getPassword())));
         userRepository.save(user);
     }
