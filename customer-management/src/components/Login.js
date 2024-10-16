@@ -8,7 +8,7 @@ const Login = ({setToken}) => {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const response = await api.post('http://localhost:8081/account/token', {
+            const response = await api.post('http://localhost:8081/token', {
                 email,
                 password,
             });

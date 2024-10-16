@@ -9,7 +9,7 @@ const Register = () => {
     const handleRegister = async (e) => {
         e.preventDefault();
         try {
-            await api.post('http://localhost:8081/account/token', {
+            await api.post('http://localhost:8081/register', {
                 name,
                 email,
                 password,
