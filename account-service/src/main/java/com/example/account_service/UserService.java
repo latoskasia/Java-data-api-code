@@ -16,18 +16,18 @@ public class UserService {
 
     private BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
-    public void saveUser(User user){
-        System.out.println("Saving user started" + user.getName() + "" +user.getEmail());
-        user.setPassword((passwordEncoder.encode(user.getPassword())));
+    @Transactional
+    public void saveUser(User user) {
+        System.out.println("Saving user: " + user.getName() + ", " + user.getEmail());
+        user.setPassword(passwordEncoder.encode(user.getPassword()));  // Hasło jest kodowane
         userRepository.save(user);
     }
 
-    public String generateJwtToken(String email, String password){
+    public String generateJwtToken(String email, String password) {
         User user = userRepository.findByEmail(email);
-        if (user!=null && passwordEncoder.matches(password, user.getPassword())){
+        if (user != null && passwordEncoder.matches(password, user.getPassword())) {
             return jwtUtil.generateToken(email);
         }
         throw new RuntimeException("Invalid credentials");
     }
-
 }
